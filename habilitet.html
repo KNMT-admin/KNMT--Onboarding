@@ -62,10 +62,7 @@ label {
   margin-bottom: 8px;
 }
 
-input[type="text"],
-input[type="date"],
-textarea,
-select {
+textarea, input[type="text"], input[type="date"] {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--green-light);
@@ -74,9 +71,13 @@ select {
   font-size: 16px;
 }
 
-textarea {
-  height: 120px;
-  resize: vertical;
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  font-weight: 400;
+  margin-bottom: 12px;
 }
 
 .print-btn {
@@ -119,53 +120,64 @@ textarea {
 <div class="container">
 
   <div class="section">
-    <h2>1. Personopplysninger</h2>
+    <p><strong>Mal for vurdering av habilitet</strong></p>
+    <p>Mal for vurdering av habilitet kan benyttes av Forsvarets ansatte som et hjelpemiddel for å vurdere egen habilitet i tråd med Veiledning for vurdering av habilitet. Malen består av avkrysningsalternativer og kommentarfelt, og avsluttes med en samlet vurdering.</p>
+    <p>Vurderingen tar utgangspunkt i forvaltningsloven § 6. Forvaltningsloven § 6 første ledd angir tilknytningsforhold som automatisk medfører inhabilitet, og forvaltningsloven § 6 annet ledd gjelder andre forhold som kan medføre inhabilitet. Den enkelte ansatte har selv ansvaret for å vurdere sin habilitet løpende, herunder opplyse om egen inhabilitet. Utfylt mal arkiveres i PDF-format på aktuell sak i Doculive av den ansatte.</p>
+  </div>
 
-    <label>Navn</label>
+  <div class="section">
+    <label>Navn på saksbehandler:</label>
     <input type="text">
 
-    <label>Stilling / rolle</label>
+    <label>Saksnummer:</label>
     <input type="text">
 
-    <label>Dato</label>
+    <label>Dato for utfylling:</label>
     <input type="date">
   </div>
 
   <div class="section">
-    <h2>2. Beskrivelse av situasjonen</h2>
-    <label>Beskriv saken eller situasjonen der habilitet vurderes</label>
-    <textarea></textarea>
+    <h2>Automatisk inhabilitet</h2>
+    <p>Dersom du krysser av på en av følgende punkter, vil du være inhabil uten en nærmere vurdering av saken.</p>
+    <p>Fyller du ut dette punktet, kan du hoppe over neste punkt (Andre forhold) og gå direkte til siste punkt for vurdering.</p>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Jeg er part i saken</label>
+      <label><input type="checkbox"> Jeg er i slekt eller svogerskap med en part i opp- eller nedadstigende linje eller sidelinje så nær som søsken</label>
+      <label><input type="checkbox"> Jeg er eller har vært gift eller forlovet med en part i saken</label>
+      <label><input type="checkbox"> Jeg er eller har vært verge eller fullmektig for en part i saken</label>
+      <label><input type="checkbox"> Jeg er leder eller har en ledende stilling i, eller er medlem av styret eller bedriftssamling for et selskap som er part i saken</label>
+    </div>
   </div>
 
   <div class="section">
-    <h2>3. Mulige bindinger</h2>
+    <h2>Andre forhold</h2>
+    <p>Du må også vurdere om det er andre forhold som medfører at du kan anses inhabil jf. forvaltningsloven § 6 annet ledd. Dersom du krysser av en eller flere av følgende punkter, må du gjøre en skjønnsmessig vurdering av din habilitet.</p>
 
-    <label>Har du personlige, økonomiske eller andre relasjoner som kan påvirke habiliteten?</label>
-    <select>
-      <option>Nei</option>
-      <option>Ja</option>
-    </select>
-
-    <label>Hvis ja, beskriv forholdet</label>
-    <textarea></textarea>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Jeg har personlig tilknytning til en part i saken</label>
+      <label><input type="checkbox"> Jeg er samboer med en part i saken</label>
+      <label><input type="checkbox"> Jeg har et vennskap eller uvennskap med en part i saken</label>
+      <label><input type="checkbox"> En part i saken er en nåværende eller tidligere kollega som jeg også omgås med på fritiden</label>
+      <label><input type="checkbox"> Jeg har tilknytning til en person som har ledende stilling eller styreverv i selskap med interesse i saken, eller av andre grunner har særlig fordel/ulempe av saksutfallet</label>
+      <label><input type="checkbox"> Jeg har økonomiske interesser i saken</label>
+      <label><input type="checkbox"> Jeg har andre, særlige, personlige interesser i saken</label>
+      <label><input type="checkbox"> Noen jeg har nær personlig tilknytning til har økonomiske interesser i saken</label>
+      <label><input type="checkbox"> Andre særegne forhold</label>
+    </div>
   </div>
 
   <div class="section">
-    <h2>4. Egen vurdering</h2>
-    <label>Vurder selv om du er habil i denne saken</label>
-    <textarea></textarea>
-  </div>
+    <h2>Samlet vurdering</h2>
+    <p>Den samlede vurderingen din må baseres på svarene over. Ved tvil skal saken drøftes med din overordnede. I tvilstilfeller kan spørsmål om vurdering av habilitet også rettes til Forsvarets jurister.</p>
 
-  <div class="section">
-    <h2>5. Faglig vurdering (fylles ut av leder)</h2>
-    <label>Vurdering av habilitet</label>
+    <label>Kommentarer / utdyping:</label>
     <textarea></textarea>
 
-    <label>Konklusjon</label>
-    <select>
-      <option>Personen anses habil</option>
-      <option>Personen anses inhabil</option>
-    </select>
+    <div class="checkbox-group">
+      <label><input type="checkbox"> Jeg vurderer at jeg er habil</label>
+      <label><input type="checkbox"> Jeg vurderer at jeg er inhabil</label>
+    </div>
   </div>
 
   <button class="print-btn" onclick="window.print()">Skriv ut skjema</button>
